@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Анкета отзывов</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
     <header class="site-header">
@@ -19,21 +20,86 @@
             <button class="btn" id="btn_start" type="button">Начать опрос</button>
         </section>
         <section class="page dev">
-            <form name="question1">
-                <label class="question_text" for="q1_value">Ваше имя</label>
-                <input id="q1_value" type="text" name="user_name" onsubmit="return " required>
-                <p>*имя должно содержать минимум 3 символа</p>
-                <button id="btn_test" type="button">Тестить</button>
-                <button type="button" id="submitQ1" disabled>Далее</button>
-            </form>
-        </section>
-        <section class="page dev">
-            <form name="question2">
-                    <label class="question_text" for="q2_value">Понравилось ли вам обслуживание в ресторане?</label>
+            <form name="questionnaire">
+                <fieldset class="question dev" name="question1">
+                    <legend>Ваше имя</legend>
+                    <label class="label-username">
+                        Имя должно содержать более 3-х букв </br>
+                        <input id="q1_value" type="text" name="user_name" required>
+                    </label>
+                    <button type="button" id="submitQ1" disabled>Далее</button>
+                </fieldset>
 
+                <fieldset class="question dev" name="question2">
+                    <legend>Понравилось ли вам обслуживание в ресторане?</legend>
+                    <input type="radio" name="q2_value" id="q2_yes" value="yes" checked>
+                    <label for="q2_yes">Да</label>
+                    <input type="radio" name="q2_value" value="no" id="q2_no">
+                    <label for="q2_no">Нет</label>
+                    <button type="button" id="submitQ2">Далее</button>
+                </fieldset>
+
+                <fieldset class="question dev" name="question3">
+                    <legend>Что вы цените в сервисе нашего ресторана?</legend>
+                    <input type="checkbox" name="like" id="q3_cb1" value="speed">
+                    <label for="q3_cb1">Быстрая подача блюд</label>
+                    <input type="checkbox" name="like" id="q3_cb2" value="staff">
+                    <label for="q3_cb2">Вежливый персонал</label>
+                    <input type="checkbox" name="like" id="q3_cb3" value="comfort">
+                    <label for="q3_cb3">Уютная атмосфера</label>
+                    <input type="checkbox" name="like" id="q3_cb4" value="variety">
+                    <label for="q3_cb4">Разнообразие меню</label>
+                    <input type="checkbox" name="like" id="q3_cb5" value="cleanness">
+                    <label for="q3_cb5">Чистота</label>
+                    <input type="checkbox" name="like" id="q3_cb6" value="music">
+                    <label for="q3_cb6">Живая музыка</label>
+                    <input type="checkbox" name="like" id="q3_cb7" value="time">
+                    <label for="q3_cb7">Время работы</label>
+                </fieldset>
+
+                <fieldset class="question dev" name="question4">
+                    <legend>Что вам не нравится в нашем ресторане?</legend>
+                    <input type="checkbox" name="like" id="q4_cb1" value="speed">
+                    <label for="q4_cb1">Быстрая подача блюд</label>
+                    <input type="checkbox" name="like" id="q4_cb2" value="staff">
+                    <label for="q4_cb2">Вежливый персонал</label>
+                    <input type="checkbox" name="like" id="q4_cb3" value="comfort">
+                    <label for="q4_cb3">Уютная атмосфера</label>
+                    <input type="checkbox" name="like" id="q4_cb4" value="variety">
+                    <label for="q4_cb4">Разнообразие меню</label>
+                    <input type="checkbox" name="like" id="q4_cb5" value="cleanness">
+                    <label for="q4_cb5">Чистота</label>
+                    <input type="checkbox" name="like" id="q4_cb6" value="music">
+                    <label for="q4_cb6">Живая музыка</label>
+                    <input type="checkbox" name="like" id="q4_cb7" value="time">
+                    <label for="q4_cb7">Время работы</label>
+                </fieldset>
+
+                <fieldset class="question dev" name="question5">
+                    <legend>Какие блюда вы хотели бы видеть в нашем ресторане?</legend>
+                    <label>
+                        Введите название блюда и нажмите «Добавить»<br/>
+                        <input type="text" name="dishes" id="q5_input">
+                        <button type="button" id="submitQ5">Добавить</button>
+                    </label>
+                </fieldset>
+
+                <fieldset class="question dev" name="question6">
+                        <legend>Дата вашего последнего визита в наш ресторан</legend>
+                        <input id="q6_calendar" required>
+                </fieldset>
+
+                <fieldset class="question dev" name="question6">
+                    <legend>Напишите ваши предложения по развитию нашего ресторана</legend>
+                    <textarea name="q7_value" id="q7_textarea" cols="30" rows="10"></textarea>
+                    <button id="btn_finish" type="button">Тестить</button>
+                </fieldset>
+
+                <button id="btn_test" type="button">Тестить</button>
             </form>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="main.js"></script>
 </body>
 </html>

@@ -12,6 +12,14 @@ body {
     display: flex;
 }
 
+.question {
+    display: none;
+}
+
+.question--active {
+    display: block;
+}
+
 .dev {
     border: 1px solid tomato;
     margin: 5px;
