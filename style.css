@@ -5,8 +5,15 @@ body {
 
 .page {
     display: none;
+    flex-direction: column;
 }
 
 .page--active {
     display: flex;
+}
+
+.dev {
+    border: 1px solid tomato;
+    margin: 5px;
+    padding: 5px;
 }

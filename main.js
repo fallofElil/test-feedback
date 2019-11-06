@@ -23,7 +23,18 @@ btnStart.onclick = function() {
 }
 
 //question 1
-function wordCount() {
-    return document.querySelector('#q1_value').value.length;
+var formQ1 = document.forms.question1;
+var userNameInput = formQ1.elements.user_name;
+
+userNameInput.oninput = function() {
+    if (userNameInput.value.length >= 3) {
+        document.querySelector('#submitQ1').removeAttribute('disabled');
+    }
 }
-console.log('words: ' + wordCount());
+
+//dev elements
+var testBtn = document.querySelector('#btn_test');
+
+testBtn.onclick = function() {
+    console.log(feedback);
+}

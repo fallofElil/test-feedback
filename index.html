@@ -12,19 +12,25 @@
         <h1>Анкета отзывов ресторана «У берега реки»</h1>
     </header>
     <main>
-        <section class="page page--active">
+        <section class="page page--active dev">
             <p>Добрый день.
             Мы рады, что вы посетили наш ресторан «У берега реки». Мы стараемся обеспечить высокое качество обслуживания, поэтому для нас важна обратная связь с гостями ресторана. Просим вас ответить на вопросы, которые помогут нам сделать сервис качественнее.
             Спасибо.</p>
             <button class="btn" id="btn_start" type="button">Начать опрос</button>
         </section>
-        <section class="page">
-            <form action="" method="post">
-                <label class="question_text">
-                    Ваше имя
-                    <input id="q1_value" type="text">
-                </label>
-                <button type="submit" disabled>Далее</button>
+        <section class="page dev">
+            <form name="question1">
+                <label class="question_text" for="q1_value">Ваше имя</label>
+                <input id="q1_value" type="text" name="user_name" onsubmit="return " required>
+                <p>*имя должно содержать минимум 3 символа</p>
+                <button id="btn_test" type="button">Тестить</button>
+                <button type="button" id="submitQ1" disabled>Далее</button>
+            </form>
+        </section>
+        <section class="page dev">
+            <form name="question2">
+                    <label class="question_text" for="q2_value">Понравилось ли вам обслуживание в ресторане?</label>
+
             </form>
         </section>
     </main>
