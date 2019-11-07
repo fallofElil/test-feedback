@@ -19,6 +19,7 @@
             Спасибо.</p>
             <button class="btn" id="btn_start" type="button">Начать опрос</button>
         </section>
+        
         <section class="page dev">
             <form name="questionnaire">
                 <fieldset class="question dev" name="question1">
@@ -82,7 +83,7 @@
                     <label>
                         Введите название блюда и нажмите «Добавить»<br/>
                         <input type="text" name="dishes" id="q5_input">
-                        <button type="button" id="q5_btn_add">Добавить</button>
+                        <button type="button" id="q5_btn_add" disabled>Добавить</button>
                         <ul id="q5_list"></ul>
                     </label>
                     <button type="button" id="submitQ5" disabled>Далее</button>
@@ -105,9 +106,16 @@
         </section>
 
         <section class="page dev">
-            <p class="user-info"></p>
+            <p>Благодарим вас за участие в опросе</p>
+            <p>
+                <button id="btnRetry">Начать опрос заново</button>
+                <button id="btnResults">Результаты опроса</button>
+            </p>
         </section>
-
+        
+        <section class="page dev" id="pageResults">
+            
+        </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="main.js"></script>
