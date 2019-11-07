@@ -11,6 +11,7 @@
 <body>
     <header class="site-header">
         <h1>Анкета отзывов ресторана «У берега реки»</h1>
+        <button id="btn_test" type="button">Тестить</button>
     </header>
     <main>
         <section class="page page--active dev">
@@ -19,7 +20,7 @@
             Спасибо.</p>
             <button class="btn" id="btn_start" type="button">Начать опрос</button>
         </section>
-        
+
         <section class="page dev">
             <form name="questionnaire">
                 <fieldset class="question dev" name="question1">
@@ -101,21 +102,17 @@
                     <button id="btn_finish" type="button">Завершить опрос</button>
                 </fieldset>
 
-                <button id="btn_test" type="button">Тестить</button>
             </form>
         </section>
 
-        <section class="page dev">
+        <section class="page dev" id="pageResults">
             <p>Благодарим вас за участие в опросе</p>
             <p>
-                <button id="btnRetry">Начать опрос заново</button>
-                <button id="btnResults">Результаты опроса</button>
+                <button id="btn_retry">Начать опрос заново</button>
+                <button id="btn_results">Результаты опроса</button>
             </p>
         </section>
         
-        <section class="page dev" id="pageResults">
-            
-        </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="main.js"></script>

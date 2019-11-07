@@ -2,24 +2,16 @@
 
 var feedbacks = [];
 
-var feedback = {
-    id: null,
-    question_1: null,
-    question_2: null,
-    question_3: [],
-    question_4: [],
-    question_5: [],
-    question_6: null,
-    question_7: null
-}
-
 function Feedback(q1, q2, q3, q4, q5, q6, q7) {
     this.id = `u${(+new Date).toString(16)}`;
     this.question_1 = q1;
     this.question_2 = q2;
-    this.question_3 = q3;
-    this.question_4 = q4;
-    this.question_5 = q5;
+    this.question_3 = [];
+    Array.prototype.push.apply(this.question_3, q3);
+    this.question_4 = [];
+    Array.prototype.push.apply(this.question_4, q4);
+    this.question_5 = [];
+    Array.prototype.push.apply(this.question_5, q5);
     this.question_6 = q6;
     this.question_7 = q7;
     this.date = new Date();
@@ -157,7 +149,13 @@ submitQ5.onclick = function() {
     for (var i = 0; i < liElements.length; i++) {
         newDishes.push(liElements[i].innerText);
     }
+    for (var i = 0; i < liElements.length; i++) {
+        liElements[i].remove();
+    }
     Array.prototype.push.apply(q5Value, newDishes);
+    for (var i = 0; i < newDishes.length; i++) {
+        newDishes.pop();
+    }
     nextQuestion(1);
 }
 
@@ -173,18 +171,62 @@ document.querySelector('#submitQ6').onclick = function() {
 }
 
 //end of questions
-var userFeedback
+function setDefaultValue() {
+    q1Value = null;
+    q2Value = null;
+    for (var i = 0; i < q3Value.length; i++) {
+        q3Value.pop();
+    }
+    for (var i = 0; i < q4Value.length; i++) {
+        q4Value.pop();
+    }
+    for (var i = 0; i < q5Value.length; i++) {
+        q5Value.pop();
+    }
+    q6Value = null;
+    q7Value = null;
+}
+
 var q7Value = null;
 document.querySelector('#btn_finish').onclick = function() {
     q7Value = document.querySelector('#q7_textarea').value;
-    userFeedback = new Feedback(q1Value, q2Value, q3Value, q4Value, q5Value, q6Value, q7Value);
+    var userFeedback = new Feedback(q1Value, q2Value, q3Value, q4Value, q5Value, q6Value, q7Value);
     feedbacks.push(userFeedback);
+    formQuest.reset();
+    setDefaultValue();
     nextPage(1);
+    questions[qstnId].classList.toggle('question--active');
+}
+
+document.querySelector('#btn_retry').onclick = function() {
+    nextPage(-2);
+    qstnId = 0;
+}
+
+//result table
+document.querySelector('#btn_results').onclick = function() {
+    var resultTable = document.createElement('table');
+    resultTable.classList.add('result-table');
+    var newRow = resultTable.insertRow(-1);
 }
 
 //dev elements
 var testBtn = document.querySelector('#btn_test');
 
 testBtn.onclick = function() {
-    console.log(userFeedback);
+    console.log('page num: ' + pageId);
+    console.log('question id: ' + qstnId);
+    console.log('array: ' + feedbacks + ' | length: ' + feedbacks.length);
+
+    for (var i = 0; i < feedbacks.length; i++) {
+        console.log('element id: ' + feedbacks[i]);
+        for (var prop in feedbacks[i]) {
+            console.log('obj[' + i + ']' + prop + ' = ' + feedbacks[i][prop]);
+            if (Array.isArray(feedbacks[i][prop])) {
+                for (var j = 0; j < feedbacks[i][prop].length; j++) {
+                    console.log('property ' + prop + 'el[' + j + '] = ' + feedbacks[i][prop][j]);
+                }
+            }
+        }
+    }
 }
