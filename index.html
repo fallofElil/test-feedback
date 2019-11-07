@@ -41,38 +41,40 @@
 
                 <fieldset class="question dev" name="question3">
                     <legend>Что вы цените в сервисе нашего ресторана?</legend>
-                    <input type="checkbox" name="like" id="q3_cb1" value="speed">
+                    <input type="checkbox" name="like" id="q3_cb1" value="Быстрая подача блюд">
                     <label for="q3_cb1">Быстрая подача блюд</label>
-                    <input type="checkbox" name="like" id="q3_cb2" value="staff">
+                    <input type="checkbox" name="like" id="q3_cb2" value="Вежливый персонал">
                     <label for="q3_cb2">Вежливый персонал</label>
-                    <input type="checkbox" name="like" id="q3_cb3" value="comfort">
+                    <input type="checkbox" name="like" id="q3_cb3" value="Уютная атмосфера">
                     <label for="q3_cb3">Уютная атмосфера</label>
-                    <input type="checkbox" name="like" id="q3_cb4" value="variety">
+                    <input type="checkbox" name="like" id="q3_cb4" value="Разнообразие меню">
                     <label for="q3_cb4">Разнообразие меню</label>
-                    <input type="checkbox" name="like" id="q3_cb5" value="cleanness">
+                    <input type="checkbox" name="like" id="q3_cb5" value="Чистота">
                     <label for="q3_cb5">Чистота</label>
-                    <input type="checkbox" name="like" id="q3_cb6" value="music">
+                    <input type="checkbox" name="like" id="q3_cb6" value="Живая музыка">
                     <label for="q3_cb6">Живая музыка</label>
-                    <input type="checkbox" name="like" id="q3_cb7" value="time">
+                    <input type="checkbox" name="like" id="q3_cb7" value="Время работы">
                     <label for="q3_cb7">Время работы</label>
+                    <button type="button" id="submitQ3">Далее</button>
                 </fieldset>
 
                 <fieldset class="question dev" name="question4">
                     <legend>Что вам не нравится в нашем ресторане?</legend>
-                    <input type="checkbox" name="like" id="q4_cb1" value="speed">
-                    <label for="q4_cb1">Быстрая подача блюд</label>
-                    <input type="checkbox" name="like" id="q4_cb2" value="staff">
-                    <label for="q4_cb2">Вежливый персонал</label>
-                    <input type="checkbox" name="like" id="q4_cb3" value="comfort">
-                    <label for="q4_cb3">Уютная атмосфера</label>
-                    <input type="checkbox" name="like" id="q4_cb4" value="variety">
-                    <label for="q4_cb4">Разнообразие меню</label>
-                    <input type="checkbox" name="like" id="q4_cb5" value="cleanness">
-                    <label for="q4_cb5">Чистота</label>
-                    <input type="checkbox" name="like" id="q4_cb6" value="music">
-                    <label for="q4_cb6">Живая музыка</label>
-                    <input type="checkbox" name="like" id="q4_cb7" value="time">
+                    <input type="checkbox" name="like" id="q4_cb1" value="Медленная подача блюд">
+                    <label for="q4_cb1">Медленная подача блюд</label>
+                    <input type="checkbox" name="like" id="q4_cb2" value="Грубый персонал">
+                    <label for="q4_cb2">Грубый персонал</label>
+                    <input type="checkbox" name="like" id="q4_cb3" value="Неуютная атмосфера">
+                    <label for="q4_cb3">Неуютная атмосфера</label>
+                    <input type="checkbox" name="like" id="q4_cb4" value="Однообразное меню">
+                    <label for="q4_cb4">Однообразное меню</label>
+                    <input type="checkbox" name="like" id="q4_cb5" value="Грязный зал">
+                    <label for="q4_cb5">Грязный зал</label>
+                    <input type="checkbox" name="like" id="q4_cb6" value="Громкая музыка">
+                    <label for="q4_cb6">Громкая музыка</label>
+                    <input type="checkbox" name="like" id="q4_cb7" value="Время работы">
                     <label for="q4_cb7">Время работы</label>
+                    <button type="button" id="submitQ4">Далее</button>
                 </fieldset>
 
                 <fieldset class="question dev" name="question5">
@@ -80,24 +82,32 @@
                     <label>
                         Введите название блюда и нажмите «Добавить»<br/>
                         <input type="text" name="dishes" id="q5_input">
-                        <button type="button" id="submitQ5">Добавить</button>
+                        <button type="button" id="q5_btn_add">Добавить</button>
+                        <ul id="q5_list"></ul>
                     </label>
+                    <button type="button" id="submitQ5" disabled>Далее</button>
                 </fieldset>
 
                 <fieldset class="question dev" name="question6">
-                        <legend>Дата вашего последнего визита в наш ресторан</legend>
-                        <input id="q6_calendar" required>
+                    <legend>Дата вашего последнего визита в наш ресторан</legend>
+                    <input id="q6_calendar" required>
+                    <button type="button" id="submitQ6">Далее</button>
                 </fieldset>
 
                 <fieldset class="question dev" name="question6">
                     <legend>Напишите ваши предложения по развитию нашего ресторана</legend>
                     <textarea name="q7_value" id="q7_textarea" cols="30" rows="10"></textarea>
-                    <button id="btn_finish" type="button">Тестить</button>
+                    <button id="btn_finish" type="button">Завершить опрос</button>
                 </fieldset>
 
                 <button id="btn_test" type="button">Тестить</button>
             </form>
         </section>
+
+        <section class="page dev">
+            <p class="user-info"></p>
+        </section>
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="main.js"></script>
