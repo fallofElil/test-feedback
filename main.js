@@ -174,15 +174,9 @@ document.querySelector('#submitQ6').onclick = function() {
 function setDefaultValue() {
     q1Value = null;
     q2Value = null;
-    for (var i = 0; i < q3Value.length; i++) {
-        q3Value.pop();
-    }
-    for (var i = 0; i < q4Value.length; i++) {
-        q4Value.pop();
-    }
-    for (var i = 0; i < q5Value.length; i++) {
-        q5Value.pop();
-    }
+    q3Value.length = 0;
+    q4Value.length = 0;
+    q5Value.length = 0;
     q6Value = null;
     q7Value = null;
 }
@@ -212,6 +206,7 @@ document.querySelector('#btn_results').onclick = function() {
 
 //dev elements
 var testBtn = document.querySelector('#btn_test');
+var btnLikeInfo = document.querySelector('#btn_like_info');
 
 testBtn.onclick = function() {
     console.log('page num: ' + pageId);
@@ -229,4 +224,18 @@ testBtn.onclick = function() {
             }
         }
     }
+}
+
+btnLikeInfo.onclick =  function() {
+    console.log('current num of elements in var q3: ' + q3Value.length);
+    console.log('current num of elements in var q5: ' + q5Value.length);
+
+    var checked = 0;
+    for (var i = 0; i < document.querySelectorAll('fieldset[name="question3"] input[type="checkbox"]').length; i++) {
+        if (document.querySelectorAll('fieldset[name="question3"] input[type="checkbox"]')[i].checked) {
+            checked += 1;
+        }
+    }
+    console.log('checked fields: ' + checked);
+    checked = 0;
 }
