@@ -20,6 +20,14 @@ body {
     display: block;
 }
 
+.list_btn-del {
+    padding: 1.5em;
+}
+
+.table-result {
+    margin-bottom: 30px;
+}
+
 .dev {
     border: 1px solid tomato;
     margin: 5px;

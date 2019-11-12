@@ -123,7 +123,7 @@ q5Input.oninput = function() {
 }
 
 q5BtnAdd.onclick = function() {
-    q5List.innerHTML += `<li>${q5Input.value}<button>X</button></li>`;
+    q5List.innerHTML += `<li>${q5Input.value}<button class="list_btn-del"></button></li>`;
     q5Input.value = '';
     this.setAttribute('disabled', 'disabled');
 
@@ -195,31 +195,38 @@ document.querySelector('#btn_finish').onclick = function() {
 document.querySelector('#btn_retry').onclick = function() {
     nextPage(-2);
     qstnId = 0;
+
+    var results = document.querySelector('#result_tables');
+    while (results.firstChild) {
+        results.removeChild(results.firstChild);
+    }
 }
 
 //result table
-function generateTable(table, data) {
-    for (let element of data) {
-        let counter = 1;
-        let row = table.insertRow();
-        let th = document.createElement('th');
-        let text = document.createTextNode(counter);
-        th.appendChild(text);
-        row.appendChild(th);
-        counter += 1;
-        for (key in element) {
+function generateTable(table, element) {
+    let counter = 1;
+    for (key in element) {
+        if (key != 'id' && key != 'date') {
+            let row = table.insertRow();
+            let th = document.createElement('th');
+            let thText = document.createTextNode(counter);
+            th.appendChild(thText);
+            row.appendChild(th);
+            counter += 1;
             let cell = row.insertCell();
-            let text = document.createTextNode(element[key]);
-            cell.appendChild(text);
+            let tdText = document.createTextNode(element[key]);
+            cell.appendChild(tdText);
         }
     }
 }
 
 document.querySelector('#btn_results').onclick = function() {
     var resultTables = document.querySelector('#result_tables');
-    for (var i = 0; i < feedbacks.length; i++) {
+
+    for (let element of feedbacks) {
         var resultTable = document.createElement('table');
-        generateTable(resultTable, feedbacks);
+        resultTable.classList.add('table-result');
+        generateTable(resultTable, element);
         resultTables.appendChild(resultTable);
     }
 }
