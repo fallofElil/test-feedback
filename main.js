@@ -198,10 +198,30 @@ document.querySelector('#btn_retry').onclick = function() {
 }
 
 //result table
+function generateTable(table, data) {
+    for (let element of data) {
+        let counter = 1;
+        let row = table.insertRow();
+        let th = document.createElement('th');
+        let text = document.createTextNode(counter);
+        th.appendChild(text);
+        row.appendChild(th);
+        counter += 1;
+        for (key in element) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(element[key]);
+            cell.appendChild(text);
+        }
+    }
+}
+
 document.querySelector('#btn_results').onclick = function() {
-    var resultTable = document.createElement('table');
-    resultTable.classList.add('result-table');
-    var newRow = resultTable.insertRow(-1);
+    var resultTables = document.querySelector('#result_tables');
+    for (var i = 0; i < feedbacks.length; i++) {
+        var resultTable = document.createElement('table');
+        generateTable(resultTable, feedbacks);
+        resultTables.appendChild(resultTable);
+    }
 }
 
 //dev elements
