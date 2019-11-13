@@ -1,6 +1,6 @@
 //global
 
-var feedbacks = [];
+const feedbacks = [];
 
 function Feedback(q1, q2, q3, q4, q5, q6, q7) {
     this.id = `u${(+new Date).toString(16)}`;
@@ -17,13 +17,13 @@ function Feedback(q1, q2, q3, q4, q5, q6, q7) {
     this.date = new Date();
 }
 
-var pages = document.querySelectorAll('.page');
-var pageId = 0;
+const pages = document.querySelectorAll('.page');
+let pageId = 0;
 
-var questions = document.querySelectorAll('.question');
-var qstnId = 0;
+const questions = document.querySelectorAll('.question');
+let qstnId = 0;
 
-var formQuest = document.forms.questionnaire;
+const formQuest = document.forms.questionnaire;
 
 function nextPage(n) {
     pages[pageId].classList.toggle('page--active');
@@ -38,7 +38,7 @@ function nextQuestion(n) {
 }
 
 function radioValue(radios) {
-    for (var i = 0; i < radios.length; i++) {
+    for (let i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
             return radios[i].value;
         }
@@ -46,8 +46,8 @@ function radioValue(radios) {
 }
 
 function checkedValue(cbs) {
-    var checked = [];
-    for (var i = 0; i < cbs.length; i++) {
+    const checked = [];
+    for (let i = 0; i < cbs.length; i++) {
         if (cbs[i].checked) {
             checked.push(cbs[i].value);
         }
@@ -56,7 +56,7 @@ function checkedValue(cbs) {
 }
 
 //home page
-var btnStart = document.querySelector('#btn_start');
+const btnStart = document.querySelector('#btn_start');
 
 btnStart.onclick = function() {
     nextPage(1);
@@ -64,9 +64,9 @@ btnStart.onclick = function() {
 }
 
 //question 1
-var q1Value = null;
-var userNameInput = formQuest.elements.user_name;
-var submitQ1 = document.querySelector('#submitQ1');
+let q1Value = null;
+const userNameInput = formQuest.elements.user_name;
+const submitQ1 = document.querySelector('#submitQ1');
 
 userNameInput.oninput = function() {
     if (this.value.length >= 3) {
@@ -80,9 +80,9 @@ submitQ1.onclick = function() {
 }
 
 //question 2
-var q2Value = null;
+let q2Value = null;
 document.querySelector('#submitQ2').onclick = function() {
-    var radios = document.querySelectorAll('fieldset[name="question2"] input[type="radio"]');
+    const radios = document.querySelectorAll('fieldset[name="question2"] input[type="radio"]');
     q2Value = radioValue(radios);
     if (q2Value.toString() == 'yes') {
         nextQuestion(1);
@@ -92,29 +92,29 @@ document.querySelector('#submitQ2').onclick = function() {
 }
 
 //question 3
-var q3Value = [];
+let q3Value = [];
 document.querySelector('#submitQ3').onclick = function() {
-    var cbs = document.querySelectorAll('fieldset[name="question3"] input[type="checkbox"]');
+    const cbs = document.querySelectorAll('fieldset[name="question3"] input[type="checkbox"]');
     Array.prototype.push.apply(q3Value, checkedValue(cbs));
     nextQuestion(2);
 }
 
 //question 4
-var q4Value = [];
+let q4Value = [];
 document.querySelector('#submitQ4').onclick = function() {
-    var cbs = document.querySelectorAll('fieldset[name="question4"] input[type="checkbox"]');
+    const cbs = document.querySelectorAll('fieldset[name="question4"] input[type="checkbox"]');
     Array.prototype.push.apply(q4Value, checkedValue(cbs));
     nextQuestion(1);
 }
 
 //question 5
-var q5Value = [];
-var q5Input = document.querySelector('#q5_input');
-var q5BtnAdd = document.querySelector('#q5_btn_add');
-var submitQ5 = document.querySelector('#submitQ5');
-var q5List = document.querySelector('#q5_list');
+let q5Value = [];
+const q5Input = document.querySelector('#q5_input');
+const q5BtnAdd = document.querySelector('#q5_btn_add');
+const submitQ5 = document.querySelector('#submitQ5');
+const q5List = document.querySelector('#q5_list');
 
-var newDishes = [];
+let newDishes = [];
 
 q5Input.oninput = function() {
     if (this.value.length >= 3) {
@@ -127,9 +127,9 @@ q5BtnAdd.onclick = function() {
     q5Input.value = '';
     this.setAttribute('disabled', 'disabled');
 
-    var liElements = q5List.querySelectorAll('li');
+    const liElements = q5List.querySelectorAll('li');
     
-    for (var i = 0; i < liElements.length; i++) {
+    for (let i = 0; i < liElements.length; i++) {
         liElements[i].querySelector('button').onclick = function() {
             this.parentElement.remove();
 
@@ -145,22 +145,22 @@ q5BtnAdd.onclick = function() {
 }
 
 submitQ5.onclick = function() {
-    var liElements = q5List.querySelectorAll('li');
-    for (var i = 0; i < liElements.length; i++) {
+    const liElements = q5List.querySelectorAll('li');
+    for (let i = 0; i < liElements.length; i++) {
         newDishes.push(liElements[i].innerText);
     }
-    for (var i = 0; i < liElements.length; i++) {
+    for (let i = 0; i < liElements.length; i++) {
         liElements[i].remove();
     }
     Array.prototype.push.apply(q5Value, newDishes);
-    for (var i = 0; i < newDishes.length; i++) {
+    for (let i = 0; i < newDishes.length; i++) {
         newDishes.pop();
     }
     nextQuestion(1);
 }
 
 //question6
-var q6Value = null;
+let q6Value = null;
 flatpickr("#q6_calendar", {
     maxDate: "today"
 });
@@ -181,10 +181,10 @@ function setDefaultValue() {
     q7Value = null;
 }
 
-var q7Value = null;
+let q7Value = null;
 document.querySelector('#btn_finish').onclick = function() {
     q7Value = document.querySelector('#q7_textarea').value;
-    var userFeedback = new Feedback(q1Value, q2Value, q3Value, q4Value, q5Value, q6Value, q7Value);
+    const userFeedback = new Feedback(q1Value, q2Value, q3Value, q4Value, q5Value, q6Value, q7Value);
     feedbacks.push(userFeedback);
     formQuest.reset();
     setDefaultValue();
@@ -196,7 +196,7 @@ document.querySelector('#btn_retry').onclick = function() {
     nextPage(-2);
     qstnId = 0;
 
-    var results = document.querySelector('#result_tables');
+    const results = document.querySelector('#result_tables');
     while (results.firstChild) {
         results.removeChild(results.firstChild);
     }
@@ -221,10 +221,10 @@ function generateTable(table, element) {
 }
 
 document.querySelector('#btn_results').onclick = function() {
-    var resultTables = document.querySelector('#result_tables');
+    const resultTables = document.querySelector('#result_tables');
 
     for (let element of feedbacks) {
-        var resultTable = document.createElement('table');
+        const resultTable = document.createElement('table');
         resultTable.classList.add('table-result');
         generateTable(resultTable, element);
         resultTables.appendChild(resultTable);
@@ -232,20 +232,20 @@ document.querySelector('#btn_results').onclick = function() {
 }
 
 //dev elements
-var testBtn = document.querySelector('#btn_test');
-var btnLikeInfo = document.querySelector('#btn_like_info');
+const testBtn = document.querySelector('#btn_test');
+const btnLikeInfo = document.querySelector('#btn_like_info');
 
 testBtn.onclick = function() {
     console.log('page num: ' + pageId);
     console.log('question id: ' + qstnId);
     console.log('array: ' + feedbacks + ' | length: ' + feedbacks.length);
 
-    for (var i = 0; i < feedbacks.length; i++) {
+    for (let i = 0; i < feedbacks.length; i++) {
         console.log('element id: ' + feedbacks[i]);
-        for (var prop in feedbacks[i]) {
+        for (let prop in feedbacks[i]) {
             console.log('obj[' + i + ']' + prop + ' = ' + feedbacks[i][prop]);
             if (Array.isArray(feedbacks[i][prop])) {
-                for (var j = 0; j < feedbacks[i][prop].length; j++) {
+                for (let j = 0; j < feedbacks[i][prop].length; j++) {
                     console.log('property ' + prop + 'el[' + j + '] = ' + feedbacks[i][prop][j]);
                 }
             }
@@ -257,8 +257,8 @@ btnLikeInfo.onclick =  function() {
     console.log('current num of elements in var q3: ' + q3Value.length);
     console.log('current num of elements in var q5: ' + q5Value.length);
 
-    var checked = 0;
-    for (var i = 0; i < document.querySelectorAll('fieldset[name="question3"] input[type="checkbox"]').length; i++) {
+    let checked = 0;
+    for (let i = 0; i < document.querySelectorAll('fieldset[name="question3"] input[type="checkbox"]').length; i++) {
         if (document.querySelectorAll('fieldset[name="question3"] input[type="checkbox"]')[i].checked) {
             checked += 1;
         }
