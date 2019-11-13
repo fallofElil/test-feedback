@@ -1,0 +1,11 @@
+{
+  "name": "test-feedback",
+  "version": "1.0.0",
+  "description": "Simple form app",
+  "main": "index.js",
+  "repository": "git@github.com:fallofElil/test-feedback.git",
+  "author": "Ilya Kiyanov <ikiyanov@protonmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {}
+}

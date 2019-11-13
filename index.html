@@ -5,32 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Анкета отзывов</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lib/normalize.css">
+    <link rel="stylesheet" href="lib/mdl/material.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="site-header">
         <h1>Анкета отзывов ресторана «У берега реки»</h1>
-        <button id="btn_test" type="button">Тестить</button>
-        <button id="btn_like_info">Проверить понравившиеся</button>
+        <p class="dev-row">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn_test" type="button">Тестить</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn_like_info">Проверить понравившиеся</button>
+        </p>
     </header>
     <main>
-        <section class="page page--active dev">
-            <p>Добрый день.
+        <section class="page page--active mdl-card mdl-shadow--2dp">
+            <p class="mdl-card__supporting-text">Добрый день.
             Мы рады, что вы посетили наш ресторан «У берега реки». Мы стараемся обеспечить высокое качество обслуживания, поэтому для нас важна обратная связь с гостями ресторана. Просим вас ответить на вопросы, которые помогут нам сделать сервис качественнее.
             Спасибо.</p>
-            <button class="btn" id="btn_start" type="button">Начать опрос</button>
+            <p class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btn_start">Начать опрос</a>
+            </p>
         </section>
 
-        <section class="page dev">
-            <form name="questionnaire">
-                <fieldset class="question dev" name="question1">
-                    <legend>Ваше имя</legend>
-                    <label class="label-username">
-                        Имя должно содержать более 3-х букв <br>
-                        <input id="q1_value" type="text" name="user_name" required>
+        <section class="page mdl-grid">
+            <form class="mdl-cell mdl-cell--4-col" name="questionnaire">
+                <fieldset class="question mdl-card mdl-shadow--2dp" name="question1">
+                    <div class="mdl-card__title">
+                        <legend class="mdl-card__title-text">Ваше имя</legend>
+                    </div>
+                    <label class="mdl-card__supporting-text" for="q1_value">
+                        Имя должно содержать более 3-х букв
                     </label>
-                    <button type="button" id="submitQ1" disabled>Далее</button>
+                    <input class="mdl-textfield__input" id="q1_value" type="text" name="user_name" required>
+                    <p class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="submitQ1">Далее</a>
+                    </p>
+                    <!--<button type="button" disabled>Далее</button>-->
                 </fieldset>
 
                 <fieldset class="question dev" name="question2">
@@ -116,7 +127,8 @@
         </section>
         
     </main>
+    <script src="./lib/mdl/material.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="main.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

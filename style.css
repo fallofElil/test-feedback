@@ -1,6 +1,18 @@
-body {
+body,
+h1,
+p {
     margin: 0;
+}
+
+body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.site-header {
+    box-sizing: border-box;
+    height: 144px;
+    padding: 40px;
+    background-color: #9BC4CB;
 }
 
 .page {
@@ -10,6 +22,8 @@ body {
 
 .page--active {
     display: flex;
+    margin: auto;
+    margin-top: 25px;
 }
 
 .question {
@@ -28,8 +42,16 @@ body {
     margin-bottom: 30px;
 }
 
+/*--- DEV STYLES ---*/
+
 .dev {
     border: 1px solid tomato;
     margin: 5px;
     padding: 5px;
+}
+
+.dev-row {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
 }
