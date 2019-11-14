@@ -1,29 +1,97 @@
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: 
+        url("./fonts/OpenSans-Regular.woff") format("woff"),
+        url("./fonts/OpenSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Open Sans Condensed";
+    font-style: normal;
+    font-weight: 300;
+    src: 
+        url("./fonts/OpenSansCondensed-Light.woff") format("woff"),
+        url("./fonts/OpenSansCondensed-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Thin Skinned";
+    font-style: normal;
+    font-weight: 400;
+    src:
+        url("./fonts/ThinSkinned.woff") format("woff"),
+        url("./fonts/ThinSkinned.woff2") format("woff2");
+}
+
 body,
 h1,
 p {
     margin: 0;
 }
 
+html {
+    font-size: 16px;
+}
+
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #eeeeee;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .site-header {
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
     height: 144px;
-    padding: 40px;
+    padding: 25px 50px;
     background-color: #9BC4CB;
+}
+
+.site-header_title-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.site-header_logo {
+    line-height: 1.2em;
+    text-transform: uppercase;
+    font-family: "Thin Skinned", Arial, Helvetica, sans-serif;
+    font-size: 48px;
+}
+
+.site-header_sub-logo {
+    margin: 0;
+    letter-spacing: 2px;
+    line-height: 1em;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 26px;
+    font-family: "Open Sans Condensed", Arial, Helvetica, sans-serif;
 }
 
 .page {
     display: none;
     flex-direction: column;
+    margin-top: 25px;
 }
 
 .page--active {
     display: flex;
+}
+
+.card {
     margin: auto;
-    margin-top: 25px;
+}
+
+.card--home {
+    width: 360px;
+}
+
+.card--home p:first-child {
+    text-align: justify;
 }
 
 .question {
@@ -53,5 +121,5 @@ body {
 .dev-row {
     display: flex;
     justify-content: space-between;
-    width: 25%;
+    width: 370px;
 }

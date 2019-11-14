@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +11,33 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header class="site-header">
-        <h1>Анкета отзывов ресторана «У берега реки»</h1>
+        <div class="site-header_title-wrapper">
+            <h1 class="site-header_logo">У берега реки</h1>
+            <h2 class="site-header_sub-logo">Анкета отзывов</h2>
+        </div>
+        
         <p class="dev-row">
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn_test" type="button">Тестить</button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btn_like_info">Проверить понравившиеся</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                id="btn_test" type="button">Тестить</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                id="btn_like_info">Проверить понравившиеся</button>
         </p>
     </header>
     <main>
-        <section class="page page--active mdl-card mdl-shadow--2dp">
-            <p class="mdl-card__supporting-text">Добрый день.
-            Мы рады, что вы посетили наш ресторан «У берега реки». Мы стараемся обеспечить высокое качество обслуживания, поэтому для нас важна обратная связь с гостями ресторана. Просим вас ответить на вопросы, которые помогут нам сделать сервис качественнее.
-            Спасибо.</p>
-            <p class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btn_start">Начать опрос</a>
-            </p>
+        <section class="page page--active mdl-grid">
+            <article class="card card--home mdl-card mdl-shadow--2dp">
+                <p class="mdl-card__supporting-text">Добрый день.
+                    Мы рады, что вы посетили наш ресторан «У берега реки». Мы стараемся обеспечить высокое качество
+                    обслуживания, поэтому для нас важна обратная связь с гостями ресторана. Просим вас ответить на
+                    вопросы, которые помогут нам сделать сервис качественнее.
+                    Спасибо.</p>
+                <p class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btn_start">Начать опрос</a>
+                </p>
+            </article>
         </section>
 
         <section class="page mdl-grid">
@@ -39,7 +51,8 @@
                     </label>
                     <input class="mdl-textfield__input" id="q1_value" type="text" name="user_name" required>
                     <p class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="submitQ1">Далее</a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                            id="submitQ1">Далее</a>
                     </p>
                     <!--<button type="button" disabled>Далее</button>-->
                 </fieldset>
@@ -125,10 +138,11 @@
             </p>
             <section id="result_tables"></section>
         </section>
-        
+
     </main>
     <script src="./lib/mdl/material.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="index.js"></script>
 </body>
+
 </html>
