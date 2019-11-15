@@ -18,7 +18,7 @@
             <h1 class="site-header_logo">У берега реки</h1>
             <h2 class="site-header_sub-logo">Анкета отзывов</h2>
         </div>
-        
+
         <p class="dev-row">
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                 id="btn_test" type="button">Тестить</button>
@@ -35,13 +35,14 @@
                     вопросы, которые помогут нам сделать сервис качественнее.
                     Спасибо.</p>
                 <p class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btn_start">Начать опрос</a>
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btn_start">Начать
+                        опрос</a>
                 </p>
             </article>
         </section>
 
         <section class="page mdl-grid">
-            <form class="mdl-cell mdl-cell--4-col" name="questionnaire">
+            <form class="survey-form" name="questionnaire">
                 <fieldset class="question mdl-card mdl-shadow--2dp" name="question1">
                     <div class="mdl-card__title">
                         <legend class="mdl-card__title-text">Ваше имя</legend>
@@ -49,7 +50,9 @@
                     <label class="mdl-card__supporting-text" for="q1_value">
                         Имя должно содержать более 3-х букв
                     </label>
-                    <input class="mdl-textfield__input" id="q1_value" type="text" name="user_name" required>
+                    <div class="q-input mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" id="q1_value" type="text" name="user_name" required>
+                    </div>
                     <p class="mdl-card__actions mdl-card--border">
                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
                             id="submitQ1">Далее</a>
@@ -57,32 +60,74 @@
                     <!--<button type="button" disabled>Далее</button>-->
                 </fieldset>
 
-                <fieldset class="question dev" name="question2">
-                    <legend>Понравилось ли вам обслуживание в ресторане?</legend>
-                    <input type="radio" name="q2_value" id="q2_yes" value="yes" checked>
-                    <label for="q2_yes">Да</label>
-                    <input type="radio" name="q2_value" value="no" id="q2_no">
-                    <label for="q2_no">Нет</label>
-                    <button type="button" id="submitQ2">Далее</button>
+                <fieldset class="question mdl-card mdl-shadow--2dp" name="question2">
+                    <div class="mdl-card__title">
+                        <legend>Понравилось ли вам обслуживание в ресторане?</legend>
+                    </div>
+                    <p class="question_input-container">
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q2_yes">
+                            <input type="radio" class="mdl-radio__button" name="q2_value" id="q2_yes" value="Да"
+                                checked>
+                            <span class="mdl-radio__label">Да</span>
+                        </label>
+
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q2_no">
+                            <input type="radio" class="mdl-radio__button" name="q2_value" value="Нет" id="q2_no">
+                            <span class="mdl-radio__label">Нет</span>
+                        </label>
+                    </p>
+
+                    <p class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                            id="submitQ2">Далее</a>
+                    </p>
                 </fieldset>
 
-                <fieldset class="question dev" name="question3">
-                    <legend>Что вы цените в сервисе нашего ресторана?</legend>
-                    <input type="checkbox" name="like" id="q3_cb1" value="Быстрая подача блюд">
-                    <label for="q3_cb1">Быстрая подача блюд</label>
-                    <input type="checkbox" name="like" id="q3_cb2" value="Вежливый персонал">
-                    <label for="q3_cb2">Вежливый персонал</label>
-                    <input type="checkbox" name="like" id="q3_cb3" value="Уютная атмосфера">
-                    <label for="q3_cb3">Уютная атмосфера</label>
-                    <input type="checkbox" name="like" id="q3_cb4" value="Разнообразие меню">
-                    <label for="q3_cb4">Разнообразие меню</label>
-                    <input type="checkbox" name="like" id="q3_cb5" value="Чистота">
-                    <label for="q3_cb5">Чистота</label>
-                    <input type="checkbox" name="like" id="q3_cb6" value="Живая музыка">
-                    <label for="q3_cb6">Живая музыка</label>
-                    <input type="checkbox" name="like" id="q3_cb7" value="Время работы">
-                    <label for="q3_cb7">Время работы</label>
-                    <button type="button" id="submitQ3">Далее</button>
+                <fieldset class="question mdl-card mdl-shadow--2dp" name="question3">
+                    <div class="mdl-card__title">
+                        <legend>Что вы цените в сервисе нашего ресторана?</legend>
+                    </div>
+
+                    <p class="question_input-container question_input-container--cb">
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="q3_cb1">
+                            <input type="checkbox" class="mdl-checkbox__input" name="like" id="q3_cb1"
+                                value="Быстрая подача блюд">
+                            <span class="mdl-checkbox__label">Быстрая подача блюд</span>
+                        </label>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="q3_cb2">
+                            <input type="checkbox" class="mdl-checkbox__input" name="like" id="q3_cb2"
+                                value="Вежливый персонал">
+                            <span class="mdl-checkbox__label">Вежливый персонал</span>
+                        </label>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="q3_cb3">
+                            <input type="checkbox" class="mdl-checkbox__input" name="like" id="q3_cb3"
+                                value="Уютная атмосфера">
+                            <span class="mdl-checkbox__label">Уютная атмосфера</span>
+                        </label>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="q3_cb4">
+                            <input type="checkbox" class="mdl-checkbox__input" name="like" id="q3_cb4"
+                                value="Разнообразие меню">
+                            <span class="mdl-checkbox__label">Разнообразие меню</span>
+                        </label>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="q3_cb5">
+                            <input type="checkbox" class="mdl-checkbox__input" name="like" id="q3_cb5" value="Чистота">
+                            <span class="mdl-checkbox__label">Чистота</span>
+                        </label>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="q3_cb6">
+                            <input type="checkbox" class="mdl-checkbox__input" name="like" id="q3_cb6"
+                                value="Живая музыка">
+                            <span class="mdl-checkbox__label">Живая музыка</span>
+                        </label>
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="q3_cb7">
+                            <input type="checkbox" class="mdl-checkbox__input" name="like" id="q3_cb7"
+                                value="Время работы">
+                            <span class="mdl-checkbox__label">Время работы</span>
+                        </label>
+                    </p>
+                    <p class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                            id="submitQ3">Далее</a>
+                    </p>
                 </fieldset>
 
                 <fieldset class="question dev" name="question4">

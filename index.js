@@ -84,7 +84,7 @@ let q2Value = null;
 document.querySelector('#submitQ2').onclick = function() {
     const radios = document.querySelectorAll('fieldset[name="question2"] input[type="radio"]');
     q2Value = radioValue(radios);
-    if (q2Value.toString() == 'yes') {
+    if (q2Value.toString() == 'Да') {
         nextQuestion(1);
     } else {
         nextQuestion(2);
